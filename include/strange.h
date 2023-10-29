@@ -10,7 +10,7 @@
 #define STRAPI __attribute__((dllexport))
 #endif
 
-#define EXTENDFACTOR 1.0
+#define EXTENDFACTOR 1.5f
 
 enum StrangeErrorHandler {
   STRSuccess,
@@ -39,7 +39,7 @@ STRAPI String string_new();
 STRAPI String string_from(const char * input);
 STRAPI StrangeError string_append_str(const char * source, String * dest);
 STRAPI StrangeError string_append_char(const char c, String * dest);
-STRAPI void string_free(const String * string);
+STRAPI void string_free(String * string);
 
 #ifdef __cplusplus
 }

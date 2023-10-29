@@ -22,5 +22,8 @@ int main(void) {
   printf("Capacity: %ld, Length: %ld, Content: %s\n", s.capacity, s.length, s.content);
   string_append("YEEET", &s);
   printf("Capacity: %ld, Length: %ld, Content: %s\n", s.capacity, s.length, s.content);
+    string_append("HELLOWORLDFUCKTHISHSITIHAHTIHTIAHTIIHTAIETHIAETHEAIT", &s);
+      printf("Capacity: %ld, Length: %ld, Content: %s\n", s.capacity, s.length, s.content);
+
   return 0;
 }

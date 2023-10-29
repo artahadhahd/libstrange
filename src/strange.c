@@ -25,7 +25,7 @@ String string_from(const char * input) {
 StrangeError string_append_str(const char * source, String * dest) {
   size_t len = strlen(source);
   if (dest->length + len >= dest->capacity) {
-    dest->capacity = (float)(dest->capacity + len) * 1.5f;
+    dest->capacity = (dest->capacity + len) * EXTENDFACTOR;
     dest->content = realloc(dest->content, dest->capacity);
     if (dest->content == NULL) {
       return STRNoMem;
@@ -48,6 +48,6 @@ StrangeError string_append_char(const char c, String * dest) {
   return STRSuccess;
 }
 
-void string_free(const String * string) {
+void string_free(String * string) {
   free(string->content);
 }
