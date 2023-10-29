@@ -1,13 +1,8 @@
 /* TODO: Optimizations */
 #ifndef STRANGE_H
 #define STRANGE_H 0.11f
-#ifdef __cplusplus
-#include <cstdlib>
-#include <cstring>
-#else
 #include <stdlib.h> /* malloc realloc */
 #include <string.h> /* strcat strlen */
-#endif
 #ifndef _WIN32
 #define STRAPI __attribute__((visibility("default")))
 #else
