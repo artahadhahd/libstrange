@@ -1,4 +1,4 @@
-#include "strange.h"
+#include "../include/strange.h"
 String string_new() {
   size_t capacity = 15;
   char * content = malloc(capacity);
@@ -9,9 +9,9 @@ String string_new() {
   };
 }
 
-String string_from(const char * restrict input) {
+String string_from(const char * input) {
   size_t len = strlen(input);
-  size_t capacity = len < 15 ? 15 : len * 2;
+  size_t capacity = len < 15 ? 15 : len * EXTENDFACTOR;
   char * content = malloc(capacity);
   strcpy(content, input);
   return (struct string) {
@@ -24,11 +24,11 @@ String string_from(const char * restrict input) {
 StrangeError string_append_str(const char * source, String * dest) {
   size_t len = strlen(source);
   if (dest->length + len >= dest->capacity) {
-    dest->content = realloc(dest->content, (dest->capacity + len) * 1.5);
+    dest->content = realloc(dest->content, (dest->capacity + len) * EXTENDFACTOR);
     if (dest->content == NULL) {
       return STRNoMem;
     }
-    dest->capacity = (dest->capacity + len) * 1.5;
+    dest->capacity = (dest->capacity + len) * EXTENDFACTOR;
   }
   strcat(dest->content, source);
   dest->length += len; 
@@ -37,11 +37,11 @@ StrangeError string_append_str(const char * source, String * dest) {
 
 StrangeError string_append_char(const char c, String * dest) {
   if (dest->length >= dest->capacity) {
-    dest->content = realloc(dest->content, dest->capacity * 2);
+    dest->content = realloc(dest->content, dest->capacity * EXTENDFACTOR);
     if (dest->content == NULL) {
       return STRNoMem;
     }
-    dest->capacity *= 2;
+    dest->capacity *= EXTENDFACTOR;
   }
   dest->content[dest->length++] = c;
   return STRSuccess;

@@ -1,18 +1,19 @@
 // TODO: Optimizations
 #ifndef STRANGE_H
-#define STRANGE_H 0.1f
+#define STRANGE_H 0.11f
 #ifndef _WIN32
 #define STRAPI __attribute__((visibility("default")))
 #else
 #define STRAPI __attribute__((dllexport))
 #endif
 #ifdef __cplusplus
-#define restrict
 extern "C" {
 #endif
 
 #include <stdlib.h> // malloc realloc
 #include <string.h> // strcat strlen
+
+#define EXTENDFACTOR 1.5
 
 enum StrangeErrorHandler {
   STRSuccess,
@@ -34,7 +35,7 @@ struct string {
 typedef struct string String;
 
 STRAPI String string_new();
-STRAPI String string_from(const char * restrict input);
+STRAPI String string_from(const char * input);
 STRAPI StrangeError string_append_str(const char * source, String * dest);
 STRAPI StrangeError string_append_char(const char c, String * dest);
 STRAPI void string_free(const String * string);
