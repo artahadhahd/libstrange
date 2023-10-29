@@ -3,13 +3,14 @@
 #define STRANGE_H 0.11f
 #include <stdlib.h> /* malloc realloc */
 #include <string.h> /* strcat strlen */
+#include <immintrin.h>
 #ifndef _WIN32
 #define STRAPI __attribute__((visibility("default")))
 #else
 #define STRAPI __attribute__((dllexport))
 #endif
 
-#define EXTENDFACTOR 1.5
+#define EXTENDFACTOR 1.0
 
 enum StrangeErrorHandler {
   STRSuccess,

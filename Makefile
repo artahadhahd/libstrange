@@ -16,3 +16,6 @@ shared: bin/strange.o
 clean:
 	@echo This deletes .o and .so files too. Enter Passphrase to confirm
 	sudo rm -r bin/
+
+test:
+	$(CC) -o Test.out test.c $(CFLAGS) -Lbin -lstrange
