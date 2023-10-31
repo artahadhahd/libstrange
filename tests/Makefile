@@ -7,8 +7,8 @@ CFLAGS=$(WARNINGS) $(LINK) $(INCLUDE) -g -O3
 
 all: CTARGET CXXTARGET
 
-CTARGET:
+CTARGET: bin/
 	gcc C/main.c -o bin/cTest.out $(CFLAGS) $(CSTD)
 
-CXXTARGET:
+CXXTARGET: bin/
 	g++ CXX/main.cpp -o bin/CppTest.out $(CFLAGS) $(CXXSTD)
