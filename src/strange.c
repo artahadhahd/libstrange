@@ -1,4 +1,5 @@
 #include "../include/strange.h"
+#include "strange.h"
 #define INITIAL_CAPACITY 15
 String string_new() {
   size_t capacity = INITIAL_CAPACITY;
@@ -50,4 +51,9 @@ StrangeError string_append_char(const char c, String * dest) {
 
 void string_free(String * string) {
   free(string->content);
+}
+void string_minify(String *string)
+{
+  string->capacity = string->length;
+  string->content = realloc(string->content, string->capacity);
 }

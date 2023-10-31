@@ -40,6 +40,7 @@ STRAPI String string_from(const char * input);
 STRAPI StrangeError string_append_str(const char * source, String * dest);
 STRAPI StrangeError string_append_char(const char c, String * dest);
 STRAPI void string_free(String * string);
+STRAPI void string_minify(String * string);
 
 #ifdef __cplusplus
 }
