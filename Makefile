@@ -11,7 +11,7 @@ static: bin/strange.o
 	ar rcs bin/libstrange.a bin/strange.o
 
 shared: bin/strange.o
-	$(CC) -shared -o bin/libstrange.so bin/strange.o
+	$(CC) -shared -fpic -o bin/libstrange.so bin/strange.o
 
 clean:
 	@echo This deletes .o and .so files too. Enter Passphrase to confirm
