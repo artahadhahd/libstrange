@@ -47,7 +47,7 @@ STRAPI void string_minify(String * string);
 #endif /* extern "C" */
 /* C11 and above */
 #if __STDC_VERSION__ >= 201112L
-#define string_append(src, dest) _Generic((src), char : string_append_char, char * : string_append_str, const char * : string_append_str)(src, dest)
+#define string_append(src, dest) _Generic((src), char : string_append_char, char * : string_append_str, const char * : string_append_str, int : string_append_char)(src, dest)
 #endif
 
 #endif /* STRANGE_H */
